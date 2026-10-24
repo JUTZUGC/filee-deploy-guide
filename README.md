@@ -76,6 +76,16 @@ INSTALL_SH=$(find . -maxdepth 2 -name install.sh | head -n 1)
 
 安装包来源：[https://github.com/KnifeLemon/Filee/releases/tag/v2.0.0](https://github.com/KnifeLemon/Filee/releases/tag/v2.0.0)
 
+## 验证状态
+
+| 场景 | 状态 |
+|---|---|
+| Windows 下载 + SHA256 校验 | 已验证 2026-10-24 |
+| Windows 静默安装 | 已验证 2026-10-24 |
+| Linux / macOS 安装 | 未实测 |
+
+> 「已验证」表示本机实际执行过并成功；「未实测」表示仅按官方文档整理，未跑通。
+
 ## MCP 接入
 
 Filee 自身不含 MCP，但提供 `filee` 命令行，可在安装后用于转换文件。本仓库的 MCP 只提供安装步骤、平台支持与常见坑。

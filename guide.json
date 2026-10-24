@@ -20,6 +20,20 @@
     "webuiUrl": "",
     "adapterPorts": "",
     "collectedAt": "2026-10-24",
+    "verification": [
+      [
+        "Windows 下载 + SHA256 校验",
+        "已验证 2026-10-24"
+      ],
+      [
+        "Windows 静默安装",
+        "已验证 2026-10-24"
+      ],
+      [
+        "Linux / macOS 安装",
+        "未实测"
+      ]
+    ],
     "deploy": {
       "type": "binary",
       "steps": [
