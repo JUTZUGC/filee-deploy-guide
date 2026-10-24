@@ -3,9 +3,12 @@
 > 第三方部署指南 · 非 Filee 官方仓库。官方项目：[KnifeLemon/Filee](https://github.com/KnifeLemon/Filee)
 > 内容来自官方文档（2026-10-24）。项目迭代快，请以[官方文档](https://github.com/KnifeLemon/Filee/blob/main/README.md)为准。
 
+[![⚡ 一键安装](https://img.shields.io/badge/%E2%9A%A1_%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85-%E6%8E%A8%E8%8D%90%E7%99%BE%E5%BA%A6%E6%90%AD%E5%AD%90-2ea44f?style=for-the-badge)](#一键安装推荐用百度搭子)
+
 ## 一键安装（推荐：用百度搭子）
 
-不用自己找安装包，让 AI 按你的系统下载、校验并装好。
+> [!TIP]
+> 不用自己找安装包，让 AI 按你的系统下载、校验并装好。
 
 ⚠️ 支持 Windows 10/11、macOS 13+（预览）、Linux x64/ARM64（Ubuntu 22.04+）。
 
