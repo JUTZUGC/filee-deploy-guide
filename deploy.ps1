@@ -1,4 +1,4 @@
-﻿# Filee 一键安装脚本（第三方指南，非官方）——按官方文档封装
+﻿# Filee 一键安装脚本（第三方指南）——按官方文档封装
 # 官方文档：https://github.com/KnifeLemon/Filee/blob/main/README.md
 # 更新日期：2026-10-24
 # 类型：binary

@@ -1,4 +1,4 @@
-# Filee 一键安装指南（非官方）
+# Filee 一键安装指南
 
 > 第三方部署指南 · 非 Filee 官方仓库。官方项目：[KnifeLemon/Filee](https://github.com/KnifeLemon/Filee)
 > 内容来自官方文档（2026-10-24）。项目迭代快，请以[官方文档](https://github.com/KnifeLemon/Filee/blob/main/README.md)为准。
