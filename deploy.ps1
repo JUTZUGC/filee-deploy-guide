@@ -16,7 +16,6 @@ $expected = ((Select-String -Path Filee-2.0.0-SHA256SUMS.txt -Pattern 'Filee-2.0
 $actual = (Get-FileHash -Algorithm SHA256 -Path Filee-2.0.0-win-Setup.exe).Hash.ToLower()
 if ($actual -ne $expected) { throw 'SHA256 校验失败，请重新下载' }
 Start-Process -FilePath .\Filee-2.0.0-win-Setup.exe -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART' -Wait
-Write-Host '安装完成：开始菜单搜索 Filee，或在命令行使用 filee'
 
 Write-Host ''
 
