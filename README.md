@@ -1,7 +1,7 @@
 # Filee 一键安装指南
 
 > 第三方部署指南 · 非 Filee 官方仓库。官方项目：[KnifeLemon/Filee](https://github.com/KnifeLemon/Filee)
-> 内容来自官方文档（2026-10-24）。项目迭代快，请以[官方文档](https://github.com/KnifeLemon/Filee/blob/main/README.md)为准。
+> 内容来自官方文档（2026-10-26）。项目迭代快，请以[官方文档](https://github.com/KnifeLemon/Filee/blob/main/README.md)为准。
 
 [![⚡ 一键安装](https://img.shields.io/badge/%E2%9A%A1_%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85-%E6%8E%A8%E8%8D%90%E7%99%BE%E5%BA%A6%E6%90%AD%E5%AD%90-2ea44f?style=for-the-badge)](#一键安装推荐用百度搭子)
 
@@ -57,24 +57,24 @@ Filee 是开源的拖拽即转换的离线文件转换器（协议：MIT，<img 
 |---|---|
 | macOS 仍是预览 | 构建尚未公证，首次启动要手动放行 |
 | Linux 平台限制 | 仅 Ubuntu 22.04+；拖拽手势需要 X11，Wayland 下受限 |
-| 安装包较大 | 各平台约 113–147 MB |
+| 安装包较大 | 各平台约 117–150 MB |
 | 老 Windows 10 可能启动失败 | 与 CET 冲突，需要先装最新系统更新 |
 
-> 以上基于官方文档与社区反馈整理（2026-10-24），以官方最新文档为准。
+> 以上基于官方文档与社区反馈整理（2026-10-26），以官方最新文档为准。
 
 ## 官方安装方式（可手动执行）
 
 ```bash
-BASE=https://github.com/KnifeLemon/Filee/releases/download/v2.0.0
+BASE=https://github.com/KnifeLemon/Filee/releases/download/v2.1.0
 if [ "$(uname -s)" = "Darwin" ]; then
   if [ "$(uname -m)" = "arm64" ]; then PLAT=osx-arm64; else PLAT=osx-x64; fi
 else
   if [ "$(uname -m)" = "aarch64" ] || [ "$(uname -m)" = "arm64" ]; then PLAT=linux-arm64; else PLAT=linux-x64; fi
 fi
-curl -fLO "$BASE/Filee-2.0.0-$PLAT.tar.gz"
-curl -fLO "$BASE/Filee-2.0.0-$PLAT-SHA256SUMS.txt"
-if command -v sha256sum >/dev/null 2>&1; then grep "  Filee-2.0.0-$PLAT.tar.gz$" "Filee-2.0.0-$PLAT-SHA256SUMS.txt" | sha256sum -c -; else grep "  Filee-2.0.0-$PLAT.tar.gz$" "Filee-2.0.0-$PLAT-SHA256SUMS.txt" | shasum -a 256 -c -; fi
-tar -xzf "Filee-2.0.0-$PLAT.tar.gz"
+curl -fLO "$BASE/Filee-2.1.0-$PLAT.tar.gz"
+curl -fLO "$BASE/Filee-2.1.0-$PLAT-SHA256SUMS.txt"
+if command -v sha256sum >/dev/null 2>&1; then grep "  Filee-2.1.0-$PLAT.tar.gz$" "Filee-2.1.0-$PLAT-SHA256SUMS.txt" | sha256sum -c -; else grep "  Filee-2.1.0-$PLAT.tar.gz$" "Filee-2.1.0-$PLAT-SHA256SUMS.txt" | shasum -a 256 -c -; fi
+tar -xzf "Filee-2.1.0-$PLAT.tar.gz"
 INSTALL_SH=$(find . -maxdepth 2 -name install.sh | head -n 1)
 [ -n "$INSTALL_SH" ] || { echo "安装包里没有找到 install.sh"; exit 1; }
 ( cd "$(dirname "$INSTALL_SH")" && ./install.sh )
@@ -86,8 +86,8 @@ INSTALL_SH=$(find . -maxdepth 2 -name install.sh | head -n 1)
 
 | 场景 | 状态 |
 |---|---|
-| Windows 下载 + SHA256 校验 | 已验证 2026-10-24 |
-| Windows 静默安装 | 已验证 2026-10-24 |
+| Release 资产与 SHA256 digest 已核对（v2.1.0） | 已核对 2026-10-26 |
+| Windows 静默安装（v2.0.0 实测，v2.1.0 未重测） | 已验证 2026-10-24 |
 
 > 本表仅列出已在本机实际执行并成功的场景；未列出的部分按官方文档整理。
 
@@ -95,7 +95,7 @@ INSTALL_SH=$(find . -maxdepth 2 -name install.sh | head -n 1)
 
 Filee 自身不含 MCP，但提供 `filee` 命令行，可在安装后用于转换文件。本仓库的 MCP 只提供安装步骤、平台支持与常见坑。
 
-本仓库自带一个零依赖的 MCP server（`mcp-server.mjs`），读取同目录的 `guide.json`，提供 `get_guide` / `search_guide` / `get_project_info` 三个工具，内容均来自官方文档（更新日期 2026-10-24）。
+本仓库自带一个零依赖的 MCP server（`mcp-server.mjs`），读取同目录的 `guide.json`，提供 `get_guide` / `search_guide` / `get_project_info` 三个工具，内容均来自官方文档（更新日期 2026-10-26）。
 
 **在百度搭子里接入**：客户端不扫描仓库里的配置文件，需要由百度搭子通过工作区的 MCP 注册接口注册，并且必须使用**绝对路径**（运行时的工作目录是会话目录，不是仓库目录）：
 
@@ -135,5 +135,5 @@ macOS 构建尚未公证：首次打开若被系统拦截，到「系统设置 �
 ## 免责声明
 
 本仓库为第三方指南，与 Filee 官方无隶属关系，不代表官方立场。
-教程基于官方文档编写（更新日期：2026-10-24），项目迭代快，请以[官方文档](https://github.com/KnifeLemon/Filee/blob/main/README.md)为准。
+教程基于官方文档编写（更新日期：2026-10-26），项目迭代快，请以[官方文档](https://github.com/KnifeLemon/Filee/blob/main/README.md)为准。
 因使用本教程产生的部署问题，请先在官方仓库的 issue 中检索。
