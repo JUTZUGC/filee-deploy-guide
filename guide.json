@@ -8,7 +8,7 @@
     "oneLiner": "拖拽即转换的离线文件转换器",
     "officialRepo": "https://github.com/KnifeLemon/Filee",
     "officialDocs": "https://github.com/KnifeLemon/Filee/blob/main/README.md",
-    "stars": "12.5k",
+    "stars": "15.5k",
     "license": "MIT",
     "highlights": [
       "支持平台：Windows 10/11、macOS 13+（预览）、Linux x64/ARM64（Ubuntu 22.04+）",
@@ -19,39 +19,39 @@
     "mcpSupport": "Filee 自身不含 MCP，但提供 `filee` 命令行，可在安装后用于转换文件。本仓库的 MCP 只提供安装步骤、平台支持与常见坑。",
     "webuiUrl": "",
     "adapterPorts": "",
-    "collectedAt": "2026-10-26",
+    "collectedAt": "2026-10-28",
     "verification": [
       [
-        "Release 资产与 SHA256 digest 已核对（v2.1.0）",
-        "已核对 2026-10-26"
+        "Release v2.2.0 的资产与 SHA256 digest 已核对",
+        "已核对 2026-10-28"
       ],
       [
-        "Windows 静默安装（v2.0.0 实测，v2.1.0 未重测）",
+        "Windows 静默安装（v2.0.0 实测，v2.2.0 未重测）",
         "已验证 2026-10-24"
       ]
     ],
     "deploy": {
       "type": "binary",
       "steps": [
-        "BASE=https://github.com/KnifeLemon/Filee/releases/download/v2.1.0",
+        "BASE=https://github.com/KnifeLemon/Filee/releases/download/v2.2.0",
         "if [ \"$(uname -s)\" = \"Darwin\" ]; then\n  if [ \"$(uname -m)\" = \"arm64\" ]; then PLAT=osx-arm64; else PLAT=osx-x64; fi\nelse\n  if [ \"$(uname -m)\" = \"aarch64\" ] || [ \"$(uname -m)\" = \"arm64\" ]; then PLAT=linux-arm64; else PLAT=linux-x64; fi\nfi",
-        "curl -fLO \"$BASE/Filee-2.1.0-$PLAT.tar.gz\"",
-        "curl -fLO \"$BASE/Filee-2.1.0-$PLAT-SHA256SUMS.txt\"",
-        "if command -v sha256sum >/dev/null 2>&1; then grep \"  Filee-2.1.0-$PLAT.tar.gz$\" \"Filee-2.1.0-$PLAT-SHA256SUMS.txt\" | sha256sum -c -; else grep \"  Filee-2.1.0-$PLAT.tar.gz$\" \"Filee-2.1.0-$PLAT-SHA256SUMS.txt\" | shasum -a 256 -c -; fi",
-        "tar -xzf \"Filee-2.1.0-$PLAT.tar.gz\"",
+        "curl -fLO \"$BASE/Filee-2.2.0-$PLAT.tar.gz\"",
+        "curl -fLO \"$BASE/Filee-2.2.0-$PLAT-SHA256SUMS.txt\"",
+        "if command -v sha256sum >/dev/null 2>&1; then grep \"  Filee-2.2.0-$PLAT.tar.gz$\" \"Filee-2.2.0-$PLAT-SHA256SUMS.txt\" | sha256sum -c -; else grep \"  Filee-2.2.0-$PLAT.tar.gz$\" \"Filee-2.2.0-$PLAT-SHA256SUMS.txt\" | shasum -a 256 -c -; fi",
+        "tar -xzf \"Filee-2.2.0-$PLAT.tar.gz\"",
         "INSTALL_SH=$(find . -maxdepth 2 -name install.sh | head -n 1)",
         "[ -n \"$INSTALL_SH\" ] || { echo \"安装包里没有找到 install.sh\"; exit 1; }",
         "( cd \"$(dirname \"$INSTALL_SH\")\" && ./install.sh )"
       ],
       "stepsPs": [
-        "curl.exe -fLO https://github.com/KnifeLemon/Filee/releases/download/v2.1.0/Filee-2.1.0-win-Setup.exe",
-        "curl.exe -fLO https://github.com/KnifeLemon/Filee/releases/download/v2.1.0/Filee-2.1.0-SHA256SUMS.txt",
-        "$expected = ((Select-String -Path Filee-2.1.0-SHA256SUMS.txt -Pattern 'Filee-2.1.0-win-Setup.exe').Line -split '\\s+')[0].ToLower()",
-        "$actual = (Get-FileHash -Algorithm SHA256 -Path Filee-2.1.0-win-Setup.exe).Hash.ToLower()",
+        "curl.exe -fLO https://github.com/KnifeLemon/Filee/releases/download/v2.2.0/Filee-2.2.0-win-Setup.exe",
+        "curl.exe -fLO https://github.com/KnifeLemon/Filee/releases/download/v2.2.0/Filee-2.2.0-SHA256SUMS.txt",
+        "$expected = ((Select-String -Path Filee-2.2.0-SHA256SUMS.txt -Pattern 'Filee-2.2.0-win-Setup.exe').Line -split '\\s+')[0].ToLower()",
+        "$actual = (Get-FileHash -Algorithm SHA256 -Path Filee-2.2.0-win-Setup.exe).Hash.ToLower()",
         "if ($actual -ne $expected) { throw 'SHA256 校验失败，请重新下载' }",
-        "Start-Process -FilePath .\\Filee-2.1.0-win-Setup.exe -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART' -Wait"
+        "Start-Process -FilePath .\\Filee-2.2.0-win-Setup.exe -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART' -Wait"
       ],
-      "source": "https://github.com/KnifeLemon/Filee/releases/tag/v2.0.0"
+      "source": "https://github.com/KnifeLemon/Filee/releases/tag/v2.2.0"
     },
     "pitfalls": [
       "Windows 双击后无窗口也无报错：老版本 Windows 10 与 CET 冲突，先装最新累积更新；仍不行按官方说明执行 `Set-ProcessMitigation -Name Filee.exe -Disable UserShadowStack`（需管理员）",
